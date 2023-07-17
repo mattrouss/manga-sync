@@ -43,14 +43,15 @@ class MangaHandler(FileSystemEventHandler):
         self.ebook_convert_options = ["--output-profile", "tablet", "--no-default-epub-cover"]
         self.calibre_add_command = ["calibredb", "add", f"--library-path={self.calibre_library_path}"]
 
-    def convert_file_to_epub(self, src_cbz_path : Path, dst_epub_path : Path):
+    def convert_file_to_epub(self, src_cbz_path: Path, dst_epub_path: Path):
         print(["ebook-convert", str(src_cbz_path), str(dst_epub_path)] + self.ebook_convert_options)
         try:
-            subprocess.run(["ebook-convert", str(src_cbz_path), str(dst_epub_path)] + self.ebook_convert_options, check=True)
+            subprocess.run(["ebook-convert", str(src_cbz_path), str(dst_epub_path)] + self.ebook_convert_options,
+                           check=True)
         except:
             print("Error converting ebook to epub, returned with non-zero exit code.")
 
-    def add_manga_to_calibre(self, src_epub_path : Path):
+    def add_manga_to_calibre(self, src_epub_path: Path):
         try:
             subprocess.run(self.calibre_add_command + [str(src_epub_path)])
         except:
