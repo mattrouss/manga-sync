@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+  my-python-app:
+    build: manga-watchdog
+    volumes:
+      - ${KAIZOKU_DATA}:/app/data
+      - ${CALIBRE_LIBRARY}:/app/calibre

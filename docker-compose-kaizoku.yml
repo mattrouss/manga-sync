@@ -17,9 +17,9 @@ services:
       - PGID=1000
       - TZ=Europe/Istanbul
     volumes:
-      - /home/matt/Documents/kaizoku/data:/data
-      - /home/matt/Documents/kaizoku/config:/config
-      - /home/matt/Documents/kaizoku/logs:/logs
+      - ${KAIZOKU_DATA}:/data
+      - ${KAIZOKU_CONFIG}:/config
+      - ${KAIZOKU_LOGS}:/logs
     depends_on:
       db:
         condition: service_healthy
