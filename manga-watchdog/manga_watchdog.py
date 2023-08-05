@@ -104,7 +104,6 @@ class MangaHandler(FileSystemEventHandler):
         return src_epub_path
 
 
-
     def on_created(self, event):
         if event.is_directory:
             return
